@@ -1,9 +1,9 @@
 name: Analyze with CodeGuru Reviewer
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 #   schedule: 
 #     # * is a special character in YAML so you have to quote this string
 #     - cron:  '*/15 * * * *'   # Runs every 15 mins
@@ -41,7 +41,7 @@ jobs:
       if: ${{ always() }} 
       with:
         build_path: taget # build artifact(s) directory
-        s3_bucket: codeguru-reviewer-patmanth-bucket  # S3 Bucket with "codeguru-reviewer-*" prefix
+        s3_bucket: codeguru-reviewer-patmanth-prod-arn-958844574125-eu-north-1  # S3 Bucket with "codeguru-reviewer-*" prefix
     
     - name: Upload review result
       if: ${{ github.event_name != 'push' }}
